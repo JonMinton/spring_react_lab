@@ -40,12 +40,34 @@ const renderCustomers = customers.map(customer => {
 
   return (
     <div className="App">
-      <p>There are {customers.length} customers</p>
-      <p>There are {courses.length} courses</p>
-      <p>There are {bookings.length} bookings</p>
-      <ul>{renderCustomers}</ul>
+    <StyledDiv>
+      <StyledH1>OF-COURSE!</StyledH1>
+      <StyledP>There are {customers.length} customers</StyledP>
+      <StyledP>There are {courses.length} courses</StyledP>
+      <StyledP>There are {bookings.length} bookings</StyledP>
+      <StyledList>{renderCustomers}</StyledList>
+      </StyledDiv>
     </div>
   );
 }
+
+const StyledDiv = styled.div`
+background: green;
+height: 105vh;
+margin-top: -22.5px;
+`
+
+const StyledList = styled.li`
+list-style-type: none;
+color: #ebac00;
+`
+
+const StyledH1 = styled.h1`
+color: #ebac00;
+`
+
+const StyledP = styled.p`
+color: #ebac00;
+`
 
 export default App;
