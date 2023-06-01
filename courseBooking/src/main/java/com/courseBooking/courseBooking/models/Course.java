@@ -4,6 +4,7 @@ package com.courseBooking.courseBooking.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,14 +25,14 @@ public class Course {
     private int starRating;
 
     @JsonIgnoreProperties({"courses"})
-    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
-    public Course(String name, String town, int starRating, List<Booking> bookings) {
+    public Course(String name, String town, int starRating) {
         this.name = name;
         this.town = town;
         this.starRating = starRating;
-        this.bookings = bookings;
+        this.bookings = new ArrayList<Booking>();
     }
 
     public Course() {
